@@ -1,1 +1,9 @@
-docker swarm join --token $(docker swarm join-token worker -q) $(docker-machine ip Char):2377
+eval $(docker-machine env Aiur)
+
+// https://docs.docker.com/v17.09/get-started/part4/#create-a-cluster
+
+docker-machine ssh Aiur "docker swarm join --token $(docker swarm join-token worker -q) $(docker-machine ip Char)"
+
+docker node ls
+// do this inside of Char to add Aiur as a worker.
+
