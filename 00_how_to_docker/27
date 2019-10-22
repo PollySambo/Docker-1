@@ -1,0 +1,7 @@
+docker service logs engineering-bay
+ docker service logs $(docker service ps engineering-bay --filter "name=engineering-bay.2")  
+ docker service logs engineering-bay | grep "engineering-bay.1."
+
+ docker service logs $(`docker service ps engineering-bay | grep "name=engineering-bay.1" |) awk '{print "name=engineering-bay.1"}'`
+
+ docker service logs $(docker service ps engineering-bay | grep "engineering-bay.1" )
